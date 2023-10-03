@@ -1,5 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-def main(request):
-    return HttpResponse('hello world')
+from .models import Country
 
+
+def main(request):
+    country = Country.objects.order_by("-population")
+    context={'country':country}
+    return render(request,"main.html",context)

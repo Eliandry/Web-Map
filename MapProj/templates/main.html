@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-
+{% for c in country %}
+                    <div class="alert posts">
+                        <b>Страна: </b>{{ c.name}}<br>
+                        <b>столица: </b>{{ c.capital }}<br>
+                        <td><a href="">Удалить</a></td>
+                    </div>
+{% endfor %}
 </body>
 </html>
