@@ -1,16 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{% for c in country %}
-                    <div class="alert posts">
-                        <b>Страна: </b>{{ c.name}}<br>
-                        <b>столица: </b>{{ c.capital }}<br>
-                        <td><a href="">Удалить</a></td>
-                    </div>
-{% endfor %}
-</body>
-</html>
+{% extends "index.html" %}
+{%block content%}
+<div><p>ljjj</p></div>
+<h3 class="pb-4 mb-4 fst-italic border-bottom">
+        Популярные страны</h3>
+<div class="row ">
+    {%for pop in pop_country%}
+    <div class="col-md-3">
+      <div class="row g-1 border rounded overflow-hidden flex-md-row mb-1 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-1 text-primary-emphasis">{{pop.part}}</strong>
+          <h3 class="mb-0">{{pop.name}}</h3>
+          <div class="mb-1 text-body-secondary">Посетило {{pop.popular}} человек</div>
+          <div class="mb-1 text-body-secondary">Оценка: {{pop.grade}}</div>
+          <p class="card-text mb-auto">Население: {{pop.population}} , Площадь: {{pop.area}}</p>
+          <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+            Посмотреть
+            <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+</div>
+{%endblock%}
